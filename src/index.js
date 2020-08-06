@@ -7,7 +7,7 @@ export default class ExampleComponent extends React.Component {
     super(props);
     this.state = {
       heightContent: "200px",
-      showMore: true
+      showMore: false
     }
   }
   showMoreAndLess = () => {
@@ -17,24 +17,24 @@ export default class ExampleComponent extends React.Component {
     })
   }
   render() {
-  let {description = content, detailList = [{key: "SKU", value : "1383958975874857"},{key: "Xuất xứ thương hiệu", value : "Vietnam"},{key: "Thương hiệu", value : "Vietnam"},{key: "Trong5 luong", value: "200g"},{key: "Quy cach dong goi", value: "Tui zip"}]} = this.props
+  let {description = "", detailList = []} = this.props
   let {heightContent = "200px", showMore} = this.state
   return (
     <div className = {styles.container}>
-    <h2>Thông tin chi tiết</h2>
+    <h2 className = {styles.titleDetail}>Thông tin chi tiết</h2>
     <div className = {styles.detailContainer}>
     <table className = {styles.table}>
     {detailList.map((detail,index) => {
       return(
       <tr>
         <th className = {styles.th}>{detail.key}</th>
-        <th>{detail.value}</th>
+        <th className = {styles.thValue}>{detail.value}</th>
       </tr>
       )
     })}
     </table>
     </div>
-    <h2>Mô tả sản phẩm</h2>
+    <h2 className = {styles.titleDescription}>MÔ TẢ SẢN PHẨM</h2>
     <div className = {styles.containerContent}>
       <div className = {styles.content} style ={{height: heightContent}}>
       {ReactHtmlParser(description)}

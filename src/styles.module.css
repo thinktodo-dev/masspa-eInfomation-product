@@ -26,7 +26,16 @@ tr:nth-child(even) {
   font-size: 14px;
   font-weight: 500
 }
-
+.titleDetail {
+  font-weight: 500;
+    font-size: 20px;
+}
+.thValue {
+  font-weight: 400;
+}
+.titleDescription {
+  font-weight: 400;
+}
 .content {
   padding: 10px;
   /* height: 300px; */
@@ -62,8 +71,13 @@ tr:nth-child(even) {
     border-radius: 4px;
     background-color: #fff;
 }
-.btnSeemore:hover {
+.btnSeemore:hover  {
   background-color: rgb(24, 158, 255);
   color: #fff;
+}
+.btnSeemore:focus {
+  background-color: rgb(24, 158, 255);
+  color: #fff;
+  outline: none;
 }
 
