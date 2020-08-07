@@ -31,15 +31,10 @@ Prop | description
 --- | --- 
 *description* | `HTML` 
 detailList | array of feature
+firstTitle | title of detail list   
+secondTitle | title of description   
 
-
-
-
-| **`firstTitle`**               | title of detail list   
-
-
-
-| **`secondTitle`**               | title of description   
+  
 
 
 
