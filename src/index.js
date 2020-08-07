@@ -13,15 +13,15 @@ export default class ExampleComponent extends React.Component {
   showMoreAndLess = () => {
     this.setState({
       showMore: !this.state.showMore,
-      heightContent: this.state.showMore ? "200px" : "auto"
+      heightContent: this.state.showMore ? "200px" : "max-content"
     })
   }
   render() {
-  let {description = "", detailList = []} = this.props
+  let {description = "", detailList = [], firstTitle = "", secondTitle = ""} = this.props
   let {heightContent = "200px", showMore} = this.state
   return (
     <div className = {styles.container}>
-    <h2 className = {styles.titleDetail}>Thông tin chi tiết</h2>
+    <h2 className = {styles.titleDetail}>{firstTitle ? firstTitle : "Thông tin chi tiết"}</h2>
     <div className = {styles.detailContainer}>
     <table className = {styles.table}>
     {detailList.map((detail,index) => {
@@ -34,12 +34,12 @@ export default class ExampleComponent extends React.Component {
     })}
     </table>
     </div>
-    <h2 className = {styles.titleDescription}>MÔ TẢ SẢN PHẨM</h2>
+    <h2 className = {styles.titleDescription}>{secondTitle ? secondTitle : "MÔ TẢ SẢN PHẨM"}</h2>
     <div className = {styles.containerContent}>
-      <div className = {styles.content} style ={{height: heightContent}}>
-      {ReactHtmlParser(description)}
+      <div className = {styles.content} style ={{maxHeight: heightContent}}>
+      {description && ReactHtmlParser(description)}
       </div>
-      {!showMore && <div className = {styles.gradient}></div>}
+      {!showMore && description && <div className = {styles.gradient}></div>}
     </div>
     <button className = {styles.btnSeemore} onClick = {() => this.showMoreAndLess()}>{showMore ? "See less" : "See more"}</button>
     </div>
