@@ -17,10 +17,10 @@ export default class ExampleComponent extends React.Component {
     })
   }
   render() {
-  let {description = "", detailList = [], firstTitle = "", secondTitle = ""} = this.props
+  let {description = "", detailList = [], firstTitle = "", secondTitle = "", fontFamily = "unset"} = this.props
   let {heightContent = "200px", showMore} = this.state
   return (
-    <div className = {styles.container}>
+    <div className = {styles.container} style = {{fontFamily: fontFamily}}>
     <h2 className = {styles.titleDetail}>{firstTitle ? firstTitle : "Thông tin chi tiết"}</h2>
     <div className = {styles.detailContainer}>
     <table className = {styles.table}>
