@@ -32,9 +32,12 @@ tr:nth-child(even) {
 }
 .thValue {
   font-weight: 400;
+  text-align: center;
 }
 .titleDescription {
   font-weight: 400;
+  font-size: 24px;
+  margin: 1rem 0;
 }
 .content {
   padding: 10px;
