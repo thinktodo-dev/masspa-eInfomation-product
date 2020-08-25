@@ -34,7 +34,7 @@ detailList | array of feature
 firstTitle | title of detail list   
 secondTitle | title of description   
 fontFamily | font-family 
-
+maximumText | maximum characters of text
   
 
 
