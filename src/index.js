@@ -17,18 +17,18 @@ export default class ExampleComponent extends React.Component {
     })
   }
   render() {
-  let {description = "", detailList = [], firstTitle = "", secondTitle = "", fontFamily = "unset", maximumText = "2000"} = this.props
+  let {description = "", detailList = [], firstTitle = "", secondTitle = "", fontFamily = "unset", maximumText = "2000",buttonMoreStyle = {}, evenRowColor = "", backgroundColor, customThStyle = {}} = this.props
   let {heightContent = "200px", showMore} = this.state
   return (
-    <div className = {styles.container} style = {{fontFamily: fontFamily}}>
+    <div className = {styles.container} style = {{fontFamily: fontFamily, backgroundColor: "f0f8ff00"}}>
     <h2 className = {styles.titleDetail}>{firstTitle ? firstTitle : "Thông tin chi tiết"}</h2>
-    <div className = {styles.detailContainer}>
+    <div className = {styles.detailContainer} style = {{backgroundColor: backgroundColor}}>
     <table className = {styles.table}>
     {detailList.map((detail,index) => {
       return(
-      <tr>
-        <th className = {styles.th}>{detail.key}</th>
-        <th className = {styles.thValue}>{detail.value}</th>
+      <tr key = {index} >
+        <th className = {styles.th} style = {customThStyle}>{detail.key}</th>
+        <th className = {styles.thValue}  style = {{backgroundColor: index%2 == 0 && evenRowColor}}>{detail.value}</th>
       </tr>
       )
     })}
@@ -41,7 +41,7 @@ export default class ExampleComponent extends React.Component {
       </div>
       {!showMore && description && description.length >= maximumText && <div className = {styles.gradient}></div>}
     </div>
-    {description && description.length >= maximumText && <button className = {styles.btnSeemore} onClick = {() => this.showMoreAndLess()}>{showMore ? "See less" : "See more"}</button>}
+    {description && description.length >= maximumText && <button style = {buttonMoreStyle} className = {styles.btnSeemore} onClick = {() => this.showMoreAndLess()}>{showMore ? "See less" : "See more"}</button>}
     </div>
   )
 }

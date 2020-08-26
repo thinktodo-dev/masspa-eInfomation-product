@@ -35,7 +35,9 @@ firstTitle | title of detail list
 secondTitle | title of description   
 fontFamily | font-family 
 maximumText | maximum characters of text
-  
+buttonMoreStyle | Custom more button style 
+evenRowColor |   Custom even row color
+customThStyle | Custom th row style
 
 
 
